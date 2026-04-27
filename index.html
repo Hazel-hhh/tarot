@@ -365,8 +365,6 @@
 
 <!-- 学习模块 -->
 <div id="module-learn">
-<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-<div class="progress-text" id="progressText"></div>
 <div style="width:100%;max-width:700px;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
   <div style="color:#8a7a9a;font-size:0.85rem;letter-spacing:1px;">选一张牌，描述你看到的，再揭晓牌义</div>
   <button onclick="resetAll()" style="background:none;border:1px solid #3a2e5a;color:#8a7a9a;padding:4px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:inherit;letter-spacing:1px;">重置进度</button>
@@ -422,10 +420,7 @@
   </div>
 </div>
 
-<div class="mastered-list" id="masteredList">
-  <div class="mastered-title">学习进度</div>
-  <div class="mastered-chips" id="masteredChips"></div>
-</div>
+
 
 <div class="complete-screen" id="completeScreen">
   <div class="complete-icon">✦</div>
@@ -648,7 +643,7 @@ function divination(n) {
       <div style="color:#8a7a9a;font-size:0.75rem;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;">${labels[i] || '第'+(i+1)+'张'}</div>
       <div style="color:#c9a96e;font-size:1rem;margin-bottom:4px;"><span style="${cardRotate}">⊕</span> ${card.name} ${posLabel}</div>
       <div style="color:#6a5a7a;font-size:0.8rem;margin-bottom:8px;">${card.nameEn}</div>
-      <div style="color:${activeColor};font-size:0.85rem;line-height:1.5;font-style:italic;">${activeMeaning}</div>
+      <div style="color:#8a7a9a;font-size:0.8rem;line-height:1.5;">点击展开详情</div>
       <div id="detail-${i}" style="display:none;margin-top:12px;border-top:1px solid #2a2440;padding-top:12px;">
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">${card.keywords.map(k=>`<span style="background:#2a1f4a;color:#c9a96e;padding:3px 10px;border-radius:20px;font-size:0.8rem;">${k}</span>`).join('')}</div>
         <div style="color:#d0c8e0;font-size:0.9rem;line-height:1.7;margin-bottom:10px;">${card.core}</div>
