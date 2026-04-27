@@ -371,17 +371,17 @@
 </div>
 
 <!-- 选牌区 -->
-<div id="cardPickerArea" style="width:100%;max-width:700px;background:#1a1628;border:1px solid #3a2e5a;border-radius:16px;padding:20px 16px;margin-bottom:20px;box-sizing:border-box;">
+<div id="cardPickerArea" style="width:100%;background:#1a1628;border:1px solid #3a2e5a;border-radius:16px;padding:20px 16px;margin-bottom:20px;box-sizing:border-box;">
   <div style="color:#c9a96e;font-size:0.9rem;letter-spacing:2px;margin-bottom:16px;text-transform:uppercase;">✦ 选一张牌</div>
   <div style="color:#8a7a9a;font-size:0.85rem;margin-bottom:14px;">选你感兴趣的，或者随机抽一张：</div>
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
     <button onclick="pickRandom()" style="background:linear-gradient(135deg,#a06ee0,#7040b0);color:white;border:none;padding:10px 22px;border-radius:8px;cursor:pointer;font-size:0.9rem;font-family:inherit;letter-spacing:1px;">随机抽牌</button>
     <button onclick="toggleCardList()" id="btnToggleList" style="background:#2a1f4a;color:#c9a96e;border:1px solid #c9a96e44;padding:10px 22px;border-radius:8px;cursor:pointer;font-size:0.9rem;font-family:inherit;letter-spacing:1px;">浏览选牌 ▼</button>
   </div>
-  <div id="cardListPanel" style="display:none;">
-    <div style="display:flex;flex-wrap:wrap;gap:6px;max-height:200px;overflow-y:auto;padding:4px;">
-      <!-- 动态生成 -->
-    </div>
+</div>
+<div id="cardListPanel" style="width:100%;background:#1a1628;border:1px solid #3a2e5a;border-radius:16px;padding:16px;margin-bottom:20px;display:none;box-sizing:border-box;">
+  <div style="display:flex;flex-wrap:wrap;gap:6px;max-height:200px;overflow-y:auto;padding:4px;">
+    <!-- 动态生成 -->
   </div>
 </div>
 
@@ -504,6 +504,8 @@ function toggleCardList() {
   const panel = document.getElementById('cardListPanel');
   const btn = document.getElementById('btnToggleList');
   if (panel.style.display === 'none') {
+    document.getElementById('revealArea').style.display = 'none';
+    document.getElementById('cardPickerArea').style.display = 'block';
     panel.style.display = 'block';
     btn.textContent = '浏览选牌 ▲';
   } else {
