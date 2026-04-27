@@ -365,7 +365,10 @@
 
 <!-- 学习模块 -->
 <div id="module-learn">
-<div style="width:100%;max-width:700px;color:#8a7a9a;font-size:0.85rem;letter-spacing:1px;margin-bottom:16px;">选一张牌，描述你看到的，再揭晓牌义</div>
+<div style="width:100%;max-width:700px;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+  <div style="color:#8a7a9a;font-size:0.85rem;letter-spacing:1px;">选一张牌，描述你看到的，再揭晓牌义</div>
+  <button onclick="resetAll()" style="background:none;border:1px solid #3a2e5a;color:#8a7a9a;padding:4px 14px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:inherit;letter-spacing:1px;">重置进度</button>
+</div>
 
 <!-- 选牌区 -->
 <div id="cardPickerArea" style="width:100%;background:#1a1628;border:1px solid #3a2e5a;border-radius:16px;padding:20px 16px;margin-bottom:20px;box-sizing:border-box;">
@@ -486,7 +489,7 @@ function renderCardList() {
   if (!listDiv) return;
   listDiv.innerHTML = CARDS.map(c => {
     const done = learned.has(c.id);
-    return `<button onclick="pickCard(${c.id})" style="background:#1e1a2e;color:#b0a0c8;border:1px solid #2a2440;padding:5px 12px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:inherit;letter-spacing:0.5px;">${c.name}</button>`;
+    return `<button onclick="pickCard(${c.id})" style="background:${done ? '#1a3a1a' : '#1e1a2e'};color:${done ? '#6ec86e' : '#b0a0c8'};border:1px solid ${done ? '#2a5a2a' : '#2a2440'};padding:5px 12px;border-radius:20px;cursor:pointer;font-size:0.8rem;font-family:inherit;letter-spacing:0.5px;">${c.name}</button>`;
   }).join('');
 }
 
