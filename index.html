@@ -134,14 +134,12 @@
     h1 { font-size: 1.4rem; letter-spacing: 2px; }
     .subtitle { font-size: 0.8rem; margin-bottom: 20px; }
     .reveal-card { padding: 18px 16px; }
-    .question { font-size: 0.9rem; }
-    textarea { font-size: 0.95rem; padding: 12px; min-height: 80px; }
+
     button { font-size: 0.95rem; padding: 12px 16px; }
     .reveal-title { font-size: 1.2rem; }
     .upright-reversed { grid-template-columns: 1fr; gap: 8px; }
     .meaning-text, .ur-text { font-size: 0.9rem; }
-    .complete-icon { font-size: 3rem; }
-    .complete-title { font-size: 1.3rem; }
+
   }
 
   /* 占卜卡片 */
@@ -279,10 +277,15 @@
 
 
 
-function init() {
-  queue = shuffle(CARDS);
+let CARDS = [];
+
+async function init() {
+  try {
+    const res = await fetch('cards.json');
+    CARDS = await res.json();
+    renderCardList();
+  } catch(e) { console.error('Failed to load cards:', e); }
   showCardPicker();
-  renderCardList();
 }
 
 function renderCardList() {
